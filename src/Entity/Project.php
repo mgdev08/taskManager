@@ -31,9 +31,6 @@ class Project
     #[ORM\Column]
     private ?bool $fullfilled = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $test = null;
-
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'projects')]
     private Collection $collaborator;
 
@@ -107,18 +104,6 @@ class Project
     public function setFullfilled(bool $fullfilled): static
     {
         $this->fullfilled = $fullfilled;
-
-        return $this;
-    }
-
-    public function getTest(): ?string
-    {
-        return $this->test;
-    }
-
-    public function setTest(?string $test): static
-    {
-        $this->test = $test;
 
         return $this;
     }
